@@ -1,0 +1,20 @@
+<div>
+    <div class="header">
+        <h1>{{title}}</h1>
+    </div>
+
+    <div class="image">
+        <img alt="item" [src]='itemImageUrl'>
+    </div>
+    <div class="button">
+        <button (click)="changeImg()" mat-raised-button color="accent">Vaihda kuva</button>
+    </div>
+
+    <input [(ngModel)]="first_name">
+
+
+
+    <mat-slider aria-label="unit(s)"></mat-slider>
+
+
+</div>

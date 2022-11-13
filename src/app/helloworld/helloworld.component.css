@@ -1,0 +1,18 @@
+.header {
+
+    height: 100px;
+    position: relative;
+    text-align: center;
+    border: 3px rosybrown;
+
+}
+
+.image {
+    text-align: center;
+    height: auto;
+    width: auto;
+}
+
+.button {
+    text-align: center;
+}
