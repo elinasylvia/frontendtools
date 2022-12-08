@@ -2,12 +2,13 @@
     <mat-form-field class="example-full-width" appearance="fill">
         <input matInput value="" readonly="true" [(ngModel)]="result">
     </mat-form-field>
+    <div>
+        <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile style="background-color: rgb(124, 124, 199);" *ngFor="let buttonValue of buttonValues">
+                <button (click)="addValue(buttonValue)" mat-raised-button>{{buttonValue}}</button>
+            </mat-grid-tile>
 
-    <mat-grid-list cols="4" rowHeight="100px">
-        <mat-grid-tile style="background-color: rgb(124, 124, 199);" *ngFor="let buttonValue of buttonValues">
-            <button (click)="addValue(buttonValue)" mat-raised-button>{{buttonValue}}</button>
-        </mat-grid-tile>
 
-
-    </mat-grid-list>
+        </mat-grid-list>
+    </div>
 </div>

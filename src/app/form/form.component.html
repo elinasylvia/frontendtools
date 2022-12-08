@@ -1,0 +1,78 @@
+<form (ngSubmit)="onSubmit(form1)" #form1="ngForm">
+    <div class="form">
+        <h1>Registration form</h1>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="first name" name="firstName" [(ngModel)]="person.firstName"
+                    #fname="ngModel" required minlength="2" pattern="^[a-zA-Z]*$">
+                <!-- regex101 patterns online editor -->
+
+                <mat-error *ngIf="fname.hasError('required')">Enter your first name</mat-error>
+                <mat-error *ngIf="fname.hasError('minlength')">Minimum 2 characters required</mat-error>
+                <mat-error *ngIf="fname.hasError('pattern')">Must be a valid name</mat-error>
+
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="last name" name="lastName" [(ngModel)]="person.lastName" #lname="ngModel"
+                    required minlength="2" pattern="^[a-zA-Z]*$">
+                <mat-error *ngIf="lname.hasError('required')">Enter your last name</mat-error>
+                <mat-error *ngIf="lname.hasError('minlength')">Minimum 2 characters required</mat-error>
+                <mat-error *ngIf="lname.hasError('pattern')">Must be a valid name</mat-error>
+            </mat-form-field>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="id" name="id" [(ngModel)]="person.id" #id="ngModel" required
+                        minlength="10"
+                        pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([0-9]\d+|\d\d-|[0-9]\dA)\d{3}[\dA-Z]$">
+                    <mat-error *ngIf="id.hasError('required')">Enter your id</mat-error>
+                    <mat-error *ngIf="id.hasError('pattern')">Must be a valid id</mat-error>
+
+
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="email" name="email" [(ngModel)]="person.email" #email="ngModel"
+                        required>
+                    <mat-error *ngIf="email.hasError('required')">Enter your email</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="username" name="username" [(ngModel)]="person.username"
+                        #username="ngModel" required>
+                    <mat-error *ngIf="username.hasError('required')">Username is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="password" type="password" name="password" [(ngModel)]="person.password"
+                        #password="ngModel" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$" required>
+                    <mat-error *ngIf="password.hasError('required')">Enter a valid password</mat-error>
+                    <mat-error *ngIf="password.hasError('pattern')">Password must contain at least 10 characters, both
+                        number and letters</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Enter password again" name="confirmPassword"
+                        [(ngModel)]="person.confirmPassword" #confirmPassword="ngModel" pattern="{{password.value}}"
+                        required>
+                    <mat-error *ngIf="confirmPassword.hasError('pattern')">Passwords do not match</mat-error>
+                </mat-form-field>
+
+            </div>
+            <div>
+                <mat-checkbox class="example-margin" [(ngModel)]="checked" name="checked">Accept terms and
+                    conditions
+                    <mat-error *ngIf="showTermsError">Terms and conditions must be accepted</mat-error>
+                </mat-checkbox>
+
+            </div>
+
+        </div>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+    </div>
+</form>

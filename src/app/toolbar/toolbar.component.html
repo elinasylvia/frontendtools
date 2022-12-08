@@ -1,0 +1,24 @@
+<p>
+    <mat-toolbar>
+        <button mat-button [matMenuTriggerFor]="menu" class="example-icon"
+            aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        Front-end tools
+    </mat-toolbar>
+    <mat-menu #menu="matMenu">
+        <a routerLink="/hello" mat-menu-item routerLinkActive="active">Hello World</a>
+        <a routerLink="/calculator" mat-menu-item routerLinkActive="active">Laskin</a>
+
+        <a routerLink="/feedback" mat-menu-item routerLinkActive="active">Kysymykset</a>
+
+        <a routerLink="/form" mat-menu-item routerLinkActive="active">Lomake</a>
+        <a routerLink="/reactiveform" mat-menu-item routerLinkActive="active">Reaktiivinen Lomake</a>
+        <a routerLink="/cinema" mat-menu-item routerLinkActive="active">Finnkino uutisia</a>
+        <a routerLink="/admin-login" mat-menu-item routerLinkActive="active">Admin-login</a>
+        <a routerLink="/admin" mat-menu-item routerLinkActive="active">Admin</a>
+
+
+
+    </mat-menu>
+</p>

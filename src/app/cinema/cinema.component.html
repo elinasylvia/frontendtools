@@ -1,0 +1,16 @@
+<h1>Finnkino uutisia</h1>
+<input matInput placeholder="Kirjoita hakusana" [(ngModel)]="searchText">
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let item of cinemaData$ | async  | search: searchText" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{item.PublishDate}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{item.Title}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <img src='{{item.ImageURL}}'>
+        <div>{{item.HTMLLead}}</div>
+    </mat-expansion-panel>
+</mat-accordion>

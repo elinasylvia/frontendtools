@@ -1,0 +1,19 @@
+<form (ngSubmit)="login()" #form1="ngForm">
+    <div class="form">
+        <h1>Authentication to admin view</h1>
+        <div>
+            <mat-form-field>
+                <input matInput value="" name="email" [(ngModel)]="email">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput value="" name="password" type="password" [(ngModel)]="passwrd">
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-raised-button color="primary">Login</button>
+            <button (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+</form>

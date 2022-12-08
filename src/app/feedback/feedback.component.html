@@ -1,0 +1,15 @@
+<mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let question of questionsArray">
+        <div>
+            <h1>{{question.displayQuestion()}}</h1>
+        </div>
+        <br>
+        <div>
+            <mat-slider aria-label="unit(s)" min="0" max="3" step="1" value="0"
+                (input)="onInputChange($event, question)">
+            </mat-slider>
+            <h2>{{question.result}}</h2>
+        </div>
+    </mat-list-item>
+
+</mat-list>
