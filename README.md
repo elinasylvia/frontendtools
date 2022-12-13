@@ -1,3 +1,5 @@
+Sovelluksen käynnistys ng serve - komennolla.
+
 # Frontendtools
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
