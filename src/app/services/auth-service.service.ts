@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthServiceService {
+  static checkLoggedInUser() {
+    throw new Error('Method not implemented.');
+  }
 
   private userEmail: BehaviorSubject<string> = new BehaviorSubject<string>('');
   // public loggedin: boolean = false;
@@ -16,17 +19,30 @@ export class AuthServiceService {
       .then(result => {
         this.userEmail.next(email);
         this.router.navigate(['admin']);
+        console.log("toimii")
       })
       .catch((error) => {
         console.log(error.message)
+        console.log("ei toimi")
+
       });
   }
 
 
   getLoggedInUser(): any //funktiota kutsutaan canActivate()-funktiossa
-  { return of(true); }
+  {
+    // return of(true);
+    return this.afAuth.authState;
+  }
 
-  checkLoggedInUser(): any { }
+  getLoggedInUserEmail(): string {
+
+    return this.userEmail.getValue();
+  }
+
+  checkLoggedInUser(): any {
+    return this.userEmail;
+  }
 
   constructor(public afAuth: AngularFireAuth, //inject firebase auth service
     public router: Router) {
@@ -39,6 +55,9 @@ export class AuthServiceService {
     });
   }
   logout() {
-    this.router.navigate(['hello']);
+    return this.afAuth.signOut().then(() => {
+      this.userEmail.next("");
+      this.router.navigate(['hello']);
+    });
   }
 }

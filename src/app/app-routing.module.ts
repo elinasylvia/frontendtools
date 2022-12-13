@@ -8,6 +8,7 @@ import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { CinemaComponent } from './cinema/cinema.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './admin/admin.component';
+import { TicketComponent } from './ticket/ticket.component';
 import { AuthGuard } from './shared/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/hello', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'reactiveform', component: ReactiveformComponent },
   { path: 'cinema', component: CinemaComponent },
   { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'ticket', component: TicketComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
 ];
 

@@ -31,6 +31,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { TicketComponent } from './ticket/ticket.component';
 
 
 
@@ -51,7 +52,8 @@ import { environment } from 'src/environments/environment';
     CinemaComponent,
     SearchPipe,
     AdminComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    TicketComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase') as

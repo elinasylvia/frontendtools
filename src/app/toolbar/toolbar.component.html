@@ -4,7 +4,16 @@
             aria-label="Example icon-button with menu icon">
             <mat-icon>menu</mat-icon>
         </button>
-        Front-end tools
+        <div> Front-end tools
+        </div>
+        <a routerLink="/admin/login" routerLinkActive="active" *ngIf="!(userEmail$ | async)">
+            <button mat-stroked-button color="primary" (click)="login()">{{loginText}}</button>
+        </a>
+        <div layout="row" *ngIf="(userEmail$ | async)">
+            <span style="margin: 20px;">{{getLoggedInUserEmail()}}</span>
+            <button mat-stroked-button color="primary" (click)="logout()">{{logoutText}}</button>
+        </div>
+
     </mat-toolbar>
     <mat-menu #menu="matMenu">
         <a routerLink="/hello" mat-menu-item routerLinkActive="active">Hello World</a>
@@ -17,8 +26,14 @@
         <a routerLink="/cinema" mat-menu-item routerLinkActive="active">Finnkino uutisia</a>
         <a routerLink="/admin-login" mat-menu-item routerLinkActive="active">Admin-login</a>
         <a routerLink="/admin" mat-menu-item routerLinkActive="active">Admin</a>
+        <a routerLink="/ticket" mat-menu-item routerLinkActive="active">Liput</a>
+
+
 
 
 
     </mat-menu>
 </p>
+
+<!-- //Sign in-nappi toolbarissa vie admin-login-sivulle, jossa syötetään tiedot, login-nappi vie admin-sivulle -->
+<!-- toolbariin sähköposti näkyviin ja logout-nappi -->
